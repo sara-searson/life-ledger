@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="" />
+    <link rel="styleshee" href="{% static 'css/base.css' %}" />
+    <title>Life Ledger</title>
+    {% block head %} 
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="header-logo-container">
+        <a href="/">
+          <img src="" alt="Life Ledger Logo" />
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'reflections-index' %}">Reflections</a></li>
+          <li><a href="{% url 'reflections-create' %}">Add a Reflection</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+     {% block content %} 
+     {% endblock %}
+     </main>
+  </body>
+</html>

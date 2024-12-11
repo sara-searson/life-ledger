@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/refelctions/reflection-index.css' %}"/>
+{% endblock %} 
+{% block content %}
+
+<section class="page-header">
+  <h1>Reflections List</h1>
+</section>
+
+<section class="card-container">
+  {% for reflection in reflections %}
+    <div class="card">
+        <a href='{% url 'reflection-detail' reflection.id%}'>
+            <h2 class='card-title'>{{ reflection.name }}</h2>
+            <h4 class='card-date'>{{ reflection.date }}</h4>
+        </a>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
