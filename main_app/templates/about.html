@@ -1,8 +1,32 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock %}
 {% block content %}
 <h1>About Life Ledger</h1>
 <hr />
-<p class="page-content">
-  Growth isn't just about setting goals, it's about being greatful for things you achieved, big and small. Look back on your year with more than just hope for tomorrow, but grattitude for yesterday. 
-</p>
+<p>Welcome to Life Ledger, the digital space where your achievements, milestones, and meaningful moments come together in one place. Our platform is designed to help you reflect on the incredible journey you’ve been on, while inspiring you to celebrate your progress and growth.</p>
+<section>
+  <h2>What is Life Ledger?</h2>
+  <p>Life Ledger is a reverse bucket list tracker. Instead of focusing on what you haven’t done yet, we help you document and cherish the milestones you’ve already accomplished. From personal victories and professional milestones to everyday moments of joy, Life Ledger ensures no achievement goes unnoticed.</p>
+  <h2>Why Life Ledger?</h2>
+  <p>In a world constantly urging us to achieve more, it’s easy to forget how far we’ve already come. Life Ledger encourages you to take a step back and:</p>
+  <ul>
+    <li>Reflect: Appreciate the moments and decisions that shaped your journey.</li>
+    <li>Celebrate: Relive your accomplishments and share your pride with others.</li>
+    <li>Grow: Gain perspective to guide your future aspirations.</li>
+  </ul>
+  <p>By shifting the focus to what you’ve already achieved, Life Ledger cultivates gratitude and helps you find inspiration in your own story.</p>
+  <h2>Who is Life Ledger for?</h2>
+  <p>Life Ledger is for anyone who wants to:</p>
+  <ul>
+    <li>Embrace gratitude and celebrate their achievements.</li>
+    <li>Keep a digital record of life’s highlights.</li>
+    <li>Reflect on their journey and discover new insights.</li>
+    <li>Share their story to inspire themselves or others.</li>
+  </ul>
+  <h2>Join Us Today</h2>
+  <p>Start documenting your journey with Life Ledger and see how far you’ve come. Because every milestone, big or small, deserves to be remembered and celebrated.</p>
+</section>
 {% endblock %}

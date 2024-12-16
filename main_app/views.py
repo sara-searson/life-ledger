@@ -12,9 +12,6 @@ from friendship.models import Friend, FriendshipRequest, Block
 from django.db.models import Q
 
 # Create your views here.
-def home(request):
-    return render(request, 'home.html')
-
 def about(request):
     return render(request, 'about.html')
 

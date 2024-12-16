@@ -9,20 +9,24 @@
     <h1>{{ reflection.name }}</h1>
     <h3>{{ reflection.date }}</h3>
     <p>{{ reflection.description }}</p>
-    <ul>
-        {% for url in reflection.media %}
-            <li><a href="{{ url }}" target="_blank">{{ url }}</a></li>
-        {% endfor %}
-    </ul>
     <div class='relfection-actions'>
         <a href='{% url 'reflection-update' reflection.id %}'class='btn warn'>Edit</a>
         <a href='{% url 'reflection-delete' reflection.id %}'class='btn danger'>Delete</a>
   </div>
 </section>
+<div class='image-container'>
+  <ul>
+    {% for url in reflection.media %}
+      <li>
+        <img src="{{ url }}" alt="{{reflection.name}}" class='reflection-img'>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
 <div class='response-container'>
   <section class='responses'>
     <div class='subsection-title'>
-      <h2>Responses</h2>
+      <h3>Responses</h3>
       <table>
         <thead>
           <tr>
@@ -53,7 +57,7 @@
           {% endfor %}
         </tbody>
       </table>
-      <h3>Add a Response</h3>
+      <h2>Add a Response</h2>
       <form 
         action='{% url "add-response" reflection.id %}' 
         method='post' 

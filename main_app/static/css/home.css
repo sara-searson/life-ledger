@@ -1,0 +1,69 @@
+main {
+    margin: 0;
+    display: flex;
+    justify-content: stretch;
+}
+
+.logo-container {
+    background-color: var(--dd-blue);
+    width: 50vw;
+    height: 90vh;
+    margin-left: -10px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-container {
+    width: 50vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section-head {
+    font-size: xx-large;
+    color: var(--gld);
+    margin-bottom: 5px;
+}
+
+.submit {
+    width: 40vw;
+    border-radius: 25px;
+}
+
+input {
+    border-radius: 25px;
+    width: 30vw;
+    font-size: x-large;
+}
+
+.section-subhead {
+    color: var(--dd-blue);
+    font-size: large;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: xx-large;
+    color: var(--ll-blue);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: large;
+    color: var(--ll-blue);
+    margin-top: 5px;
+}
