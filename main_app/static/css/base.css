@@ -22,13 +22,13 @@ html {
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif;
     min-height: 100vh;
-    --nav-bg: rgba(104, 197, 248, 0.7);
-    --nav-bg-ff: rgba(104, 197, 248, 0.9);
-    --borders: rgb(36, 116, 248) solid 2px;
-    --text-color: rgb(17, 20, 17);
-    --link-hover-color: rgb(16, 56, 158);
-    --button-bg: #cee5f2;
-    --button-bg-hover: rgb(226, 226, 226);
+    --ll-blue: #cee5f2;
+    --ml-blue: #7C98b3;
+    --md-blue: #637081;
+    --dd-blue: #536b78;
+    --gld: #d4af37;
+    --l-gld: #d8ceae;
+    --d-gld: #8d7432;
     --submit: rgb(26, 128, 0);
     --warn: rgb(255, 102, 0);
     --danger: rgb(220, 20, 30);
@@ -41,3 +41,7 @@ html {
     --font-reg: 1.6rem;
     --card-border-radius: 6px;
   }
+
+nav {
+  background-color: var(--dd-blue);
+}

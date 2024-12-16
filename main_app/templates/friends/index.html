@@ -1,0 +1,60 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/friends/index.css' %}"/>
+{% endblock %} 
+{% block content %}
+
+<section class="page-header">
+  <h1>Friends</h1>
+</section>
+
+<section class="card-container friend-list">
+  {% for frineds in friendships %}
+    <div class="card">
+        <h2 class='card-title'>{{ friend.user }}</h2>
+    </div>
+    {% empty %}
+    <h2>You haven't added any friends yet!</h2>
+  {% endfor %}
+</section>
+
+<section class='card-container pending-requests'>
+    <h2>Pending Requests</h2>
+    <ul>
+        {% for requests in pending_requests %}
+            <li>{{ request.from_user.username }} has sent you a friend request</li>
+        {% empty %}
+            <li>No pending requests</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class='card-container search'>
+    <h2>Find Friends</h2>
+    <form method='get' action='{% url "index-friends" %}'>
+        <input type='text' name='search' value='{{ query }}'placholder='username'>
+        <button type='submit' class='btn'>Search</button>
+    </form>
+    {% if search_results %}
+        <h3>Results</h3>
+        <ul>
+            {% for user in search_results %}
+                <li>
+                    {{ user.username }}
+                    {% comment %} <form method='post' action='' style='display: inline;'>
+                        {% csrf_token %}
+                        <input type='hidden' name='recipient_id' value='{{ user.id }}'>
+                        <button type='submit' name='sent_request' class='btn'>SendRequest</button>
+                    </form> {% endcomment %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No users found</p>
+    {% endif %}
+</section>
+
+
+
+{% endblock %}

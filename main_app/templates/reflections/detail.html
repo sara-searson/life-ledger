@@ -19,4 +19,52 @@
         <a href='{% url 'reflection-delete' reflection.id %}'class='btn danger'>Delete</a>
   </div>
 </section>
+<div class='response-container'>
+  <section class='responses'>
+    <div class='subsection-title'>
+      <h2>Responses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Reaction</th>
+            <th>Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for response in reflection.response_set.all %}
+            <tr>
+              <td>{{response.user}}</td>
+              <td>
+                {% if response.reaction == 'L' %}
+                    ❤️
+                {% elif response.reaction == 'H' %}
+                    😊
+                {% elif response.reaction == 'S' %}
+                    😢
+                {% elif response.reaction == 'C' %}
+                    🤗
+                {% else %}
+                    ❓
+                {% endif %}
+            </td>
+              <td>{{response.comment}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <h3>Add a Response</h3>
+      <form 
+        action='{% url "add-response" reflection.id %}' 
+        method='post' 
+        class='subsection-content' 
+        autocomplete='off'
+      >
+        {% csrf_token %}
+        {{ response_form.as_p }}
+        <button type='submit' class='btn submit'>Add Response</button>
+      </form>
+    </section>
+  </div>
+
 {% endblock %}
