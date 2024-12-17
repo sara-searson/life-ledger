@@ -25,6 +25,10 @@ main {
     justify-content: center;
 }
 
+.logo-img {
+    max-width: 50vw;
+}
+
 .login {
     display: flex;
     align-items: center;
@@ -81,5 +85,9 @@ input {
     .login-container {
         height: 60vh;
         width: 100vw;
+    }
+
+    .logo-img {
+        height: 20vh;
     }
 }
