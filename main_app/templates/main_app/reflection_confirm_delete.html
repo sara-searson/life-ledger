@@ -5,13 +5,19 @@
 <div class="page-header">
   <h1>Delete Reflection?</h1>
 </div>
+{% if reflection.user == request.user %}
+  <h2>Are you sure you want to delete {{ reflection.name }}?</h2>
 
-<h2>Are you sure you want to delete {{ reflection.name }}?</h2>
+  <form action="" method="post" class="form">
+    {% csrf_token %}
+    <a href="{% url 'reflection-detail' reflection.id %}" class="btn secondary">Cancel</a>
+    <button type="submit" class="btn danger">Yes - Delete!</button>
+  </form>
+  {% else %}
+    <p class='not-owner'>Hey, this isn't yours! Don't delete other people's posts.</p>
+  {% endif %}
 
-<form action="" method="post" class="form">
-  {% csrf_token %}
-  <a href="{% url 'reflection-detail' reflection.id %}" class="btn secondary">Cancel</a>
-  <button type="submit" class="btn danger">Yes - Delete!</button>
-</form>
+
+
 
 {% endblock %}

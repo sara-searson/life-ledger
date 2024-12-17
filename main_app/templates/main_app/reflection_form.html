@@ -9,12 +9,16 @@
   <h1>What are you Thankful For?</h1>
 </div>
 
-<form action="" method="post" class="form-container">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type="submit" class="btn submit">Submit!</button>
-</form>
+{% if not reflection or reflection.user == request.user %}
+  <form action="" method="post" class="form-container">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn submit">Submit!</button>
+  </form>
+{% else %}
+  <p>Hey, stop trying to change other people's memories! What's wrong with you?</p>
+{% endif %}
 
 {% endblock %}
