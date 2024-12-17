@@ -38,7 +38,7 @@ main {
 
 .section-head {
     font-size: xx-large;
-    color: var(--gld);
+    color: var(--l-gld);
     margin-bottom: 5px;
 }
 
@@ -54,7 +54,7 @@ input {
 }
 
 .section-subhead {
-    color: var(--dd-blue);
+    color: var(--dark-font);
     font-size: large;
     margin-top: 5px;
     margin-bottom: 20px;
@@ -62,13 +62,13 @@ input {
 
 .title {
     font-size: xx-large;
-    color: var(--ll-blue);
+    color: var(--light-font);
     margin-bottom: 5px;
 }
 
 .subtitle {
     font-size: large;
-    color: var(--ll-blue);
+    color: var(--light-font);
     margin-top: 5px;
 }
 

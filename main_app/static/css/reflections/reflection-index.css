@@ -5,7 +5,7 @@
   margin-top: 5vh;
   border-radius: 25px;
   width: 85vw;
-  height: 15vh;
+  height: 120px;
   display: flex;
   justify-content: center;
 }
@@ -24,6 +24,7 @@
   background-color: var(--md-blue);
   border-radius: 25px;
   width: 40vw;
+  height: 100px;
   text-align: center;
 }
 
@@ -36,14 +37,29 @@ a {
   color: var(--gld);
 }
 
+.scrollable-cards {
+  height: 60vh; 
+  width: 90vw;
+  overflow-y: auto; 
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 768px) {
   .card-container {
     flex-direction: column;
   }
 
   .card {
-    width: 90vw;
-    height: 10vh;
+    width: 85vw;
+    height: 100px;
     margin: 1vh
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  .scrollable-cards {
+    height: 40vh
   }
 }

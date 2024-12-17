@@ -10,14 +10,16 @@
 </section>
 
 <section class="card-container">
-  {% for reflection in reflections %}
-    <div class="card">
-        <a href='{% url 'reflection-detail' reflection.id%}'>
-            <h2 class='card-title'>{{ reflection.name }}</h2>
-            <h4 class='card-date'>{{ reflection.date }}</h4>
-        </a>
-    </div>
-  {% endfor %}
+  <div class="scrollable-cards">
+    {% for reflection in reflections %}
+      <div class="card">
+          <a href='{% url 'reflection-detail' reflection.id%}'>
+              <h2 class='card-title'>{{ reflection.name }}</h2>
+              <h4 class='card-date'>{{ reflection.date }}</h4>
+          </a>
+      </div>
+    {% endfor %}
+  </div>
 </section>
 
 {% endblock %}
