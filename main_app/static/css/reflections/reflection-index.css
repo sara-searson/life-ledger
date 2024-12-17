@@ -40,7 +40,7 @@ a {
 .scrollable-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10vw;
+  column-gap: 10vw;
   grid-auto-flow: dense;
   height: 60vh; 
   width: 90vw;

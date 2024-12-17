@@ -16,7 +16,7 @@ main {
     background-color: var(--ll-blue);
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-content: center;
     text-align: center;
 }
@@ -28,7 +28,7 @@ main {
     grid-row: 1 / span 1;
     justify-self: stretch;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-content: center;
 }
 
@@ -89,7 +89,9 @@ textarea {
 }
 
 .description-container {
-    height: 15vh;
+    height: 40vh;
+    max-width: 400px;
+    align-self: center;
     overflow-y: auto;
 }
 
@@ -114,6 +116,7 @@ textarea {
 
     .response-container {
         height: 35vh;
+        justify-content: start;
     }
 
     h1 {
@@ -122,6 +125,10 @@ textarea {
 
     .reflection-title {
         margin-top: 0;
+    }
+
+    .description-container {
+        height: 15vh;
     }
 }
 
