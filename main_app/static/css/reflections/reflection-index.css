@@ -23,9 +23,10 @@
 .card {
   background-color: var(--md-blue);
   border-radius: 25px;
-  width: 40vw;
+  width: 45vw;
   height: 100px;
   text-align: center;
+  margin: 0;
 }
 
 a {
@@ -40,14 +41,15 @@ a {
 .scrollable-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 10vw;
+  grid-auto-rows: 100px;
+  column-gap: 5vw;
+  row-gap: 20px;
   grid-auto-flow: dense;
   height: 60vh; 
-  width: 90vw;
+  width: 95vw;
   overflow-y: auto; 
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 768px) {
