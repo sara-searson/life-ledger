@@ -27,47 +27,49 @@
   <section class='responses'>
     <div class='subsection-title'>
       <h3>Responses</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Reaction</th>
-            <th>Response</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for response in reflection.response_set.all %}
+      <div class='scrollable-table'>
+        <table>
+          <thead>
             <tr>
-              <td>{{response.user}}</td>
-              <td>
-                {% if response.reaction == 'L' %}
-                    ❤️
-                {% elif response.reaction == 'H' %}
-                    😊
-                {% elif response.reaction == 'S' %}
-                    😢
-                {% elif response.reaction == 'C' %}
-                    🤗
-                {% else %}
-                    ❓
-                {% endif %}
-            </td>
-              <td>{{response.comment}}</td>
+              <th>User</th>
+              <th>Reaction</th>
+              <th>Response</th>
             </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      <h2>Add a Response</h2>
-      <form 
-        action='{% url "add-response" reflection.id %}' 
-        method='post' 
-        class='subsection-content' 
-        autocomplete='off'
-      >
-        {% csrf_token %}
-        {{ response_form.as_p }}
-        <button type='submit' class='btn submit'>Add Response</button>
-      </form>
+          </thead>
+          <tbody>
+            {% for response in reflection.response_set.all %}
+              <tr>
+                <td>{{response.user}}</td>
+                <td>
+                  {% if response.reaction == 'L' %}
+                      ❤️
+                  {% elif response.reaction == 'H' %}
+                      😊
+                  {% elif response.reaction == 'S' %}
+                      😢
+                  {% elif response.reaction == 'C' %}
+                      🤗
+                  {% else %}
+                      ❓
+                  {% endif %}
+              </td>
+                <td>{{response.comment}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <h2>Add a Response</h2>
+        <form 
+          action='{% url "add-response" reflection.id %}' 
+          method='post' 
+          class='subsection-content' 
+          autocomplete='off'
+        >
+          {% csrf_token %}
+          {{ response_form.as_p }}
+          <button type='submit' class='btn submit'>Add Response</button>
+        </form>
+      </div>
     </section>
   </div>
 
