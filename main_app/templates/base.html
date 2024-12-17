@@ -16,11 +16,19 @@
     <header>
       <div class="header-logo-container">
         <a href="/">
-          <img src="" alt="Life Ledger Logo" />
+          <img src="{% static "images/logo-light.png" %}" alt="Life Ledger Logo" class='header-logo'/>
         </a>
       </div>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
       <nav>
-        <ul>
+        <ul class='navs'>
           {% if user.is_authenticated %}
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'reflections-index' %}">My Reflections</a></li>
@@ -28,7 +36,7 @@
             <li>
               <form id="logout-form" method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
-                <button type="submit">Log out</button>
+                <button type="submit" class='logout'>Log out</button>
               </form>
             </li>
           {% else %}

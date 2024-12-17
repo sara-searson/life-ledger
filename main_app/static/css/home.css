@@ -67,3 +67,19 @@ input {
     color: var(--ll-blue);
     margin-top: 5px;
 }
+
+@media only screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .logo-container {
+        height: 30vh;
+        width: 100vw;
+    }
+
+    .login-container {
+        height: 60vh;
+        width: 100vw;
+    }
+}

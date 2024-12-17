@@ -1,3 +1,5 @@
-h2 { 
-    font-size: x-large;
+body {
+    color: var(--md-blue);
+    font-size: large;
 }
+

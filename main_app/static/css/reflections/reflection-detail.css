@@ -81,3 +81,27 @@ textarea {
 .subsection-content button {
     height: 8vh;
 }
+
+@media only screen and (max-width: 768px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .reflection-container {
+        height: 25vh;
+    }
+
+    .reflection-img {
+        height: 25vh;
+    }
+
+    .response-container {
+        height: 35vh;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+}

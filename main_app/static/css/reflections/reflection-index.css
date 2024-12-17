@@ -12,6 +12,7 @@
 
 .header {
   color: var(--dd-blue);
+  font-size: xx-large;
 }
 
 .card-container {
@@ -33,4 +34,16 @@ a {
 
 .card :hover {
   color: var(--gld);
+}
+
+@media only screen and (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 90vw;
+    height: 10vh;
+    margin: 1vh
+  }
 }

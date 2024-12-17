@@ -46,7 +46,7 @@ html {
     width: 100%;
     background: var(--dd-blue); 
     border-bottom: var(--borders);
-    height: 10vh;
+    max-height: 10vh;
   }
   
   nav {
@@ -139,28 +139,49 @@ html {
     color: var(--danger);
     border-color: var(--danger);
   }
-  
-  .page-header h1 {
-    font-size: var(--font-xxl);
+
+  .header-logo {
+    height: 10vh;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-logo-container {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    width: 10vw;
+    padding: 0;
+    border: 0;
     margin: 0;
   }
-  
-  .page-header img {
-    height: 40px;
-    margin-left: 15px;
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-left: auto;
   }
   
-  .page-header img:first-of-type {
-    margin-left: 20px;
-  }
-  
-  .page-content {
-    font-size: var(--font-reg);
+  .hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 3px;
   }
 
   #logout-form button {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--ml-blue);
     font-weight: 600;
     font-size: 16px;
     background: none;
@@ -171,6 +192,31 @@ html {
   }
   
   #logout-form button:hover {
-    color: var(--link-hover-color);
+    color: var(--ll-blue);
   }
   
+  @media only screen and (max-width: 768px) {
+    .navs {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background-color: var(--dd-blue);
+      padding: 10px;
+      box-shadow: 0 2px 8px var(--card-box-shadow);
+      border-radius: 5px;
+    }
+
+    .navs li {
+      margin: 10px 0;
+    }
+
+    .nav-toggle:checked + .hamburger-menu + nav .navs {
+      display: flex; 
+    }
+  
+    .hamburger-menu {
+      display: flex;
+    }
+  }

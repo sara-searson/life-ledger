@@ -21,14 +21,25 @@
 
 <section class='card-container pending-requests'>
     <h2>Pending Requests</h2>
+    {% if pending_requests %}
     <ul>
-        {% for requests in pending_requests %}
-            <li>{{ request.from_user.username }} has sent you a friend request</li>
-        {% empty %}
-            <li>No pending requests</li>
+        {% for request in pending_requests %}
+            <li>
+                {{ request.from_user.username }}
+                <form method="post" action="{% url 'accept_request' request.id %}">
+                    {% csrf_token %}
+                    <button type="submit" name="action" value="accept">Accept</button>
+                </form>
+                <form method="post" action="{% url 'reject_request' request.id %}">
+                    {% csrf_token %}
+                    <button type="submit" name="action" value="reject">Reject</button>
+                </form>
+            </li>
         {% endfor %}
     </ul>
-</section>
+{% else %}
+    <p>No pending friend requests.</p>
+{% endif %}
 
 <section class='card-container search'>
     <h2>Find Friends</h2>
@@ -42,11 +53,11 @@
             {% for user in search_results %}
                 <li>
                     {{ user.username }}
-                    {% comment %} <form method='post' action='' style='display: inline;'>
+                    <form method='post' action=''>
                         {% csrf_token %}
                         <input type='hidden' name='recipient_id' value='{{ user.id }}'>
-                        <button type='submit' name='sent_request' class='btn'>SendRequest</button>
-                    </form> {% endcomment %}
+                        <button type='submit' name='send_request' class='btn'>Send Request</button>
+                    </form>
                 </li>
             {% endfor %}
         </ul>
