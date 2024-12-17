@@ -11,10 +11,14 @@
   </div>
   <div class="description-container">
     <p>{{ reflection.description }}</p>
-    <div class='relfection-actions'>
-        <a href='{% url 'reflection-update' reflection.id %}'class='btn warn'>Edit</a>
-        <a href='{% url 'reflection-delete' reflection.id %}'class='btn danger'>Delete</a>
-    </div>
+    {% if reflection.user == request.user %}
+      <div class='relfection-actions'>
+          <a href='{% url 'reflection-update' reflection.id %}'class='btn warn'>Edit</a>
+          <a href='{% url 'reflection-delete' reflection.id %}'class='btn danger'>Delete</a>
+      </div>
+    {% else %}
+      <p class='reflection-owener'>Posted by: {{ reflection.user.username }}</p>
+    {% endif %}
     <div class="share-container">
       <p>Enjoyed this reflection? Share it with your friends!</p>
       <label for="share-link" style="font-weight: bold;">Copy the link below:</label>
