@@ -16,25 +16,31 @@
           <a href='{% url 'reflection-update' reflection.id %}'class='btn warn'>Edit</a>
           <a href='{% url 'reflection-delete' reflection.id %}'class='btn danger'>Delete</a>
       </div>
+      <div class="share-container">
+        <p>Want to let the world know? (or just your friends)?</p>
+        <label for="share-link" style="font-weight: bold;">Copy the link below:</label>
+        <input 
+          type="text" 
+          id="share-link" 
+          value="{{ request.build_absolute_uri }}" 
+          readonly 
+          style="width: 100%; padding: 5px; margin-top: 5px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px;"
+        >
+      </div>
     {% else %}
-      <p class='reflection-owener'>Posted by: {{ reflection.user.username }}</p>
+      <p class='reflection-owner'>Posted by: {{ reflection.user.username }}</p>
     {% endif %}
-    <div class="share-container">
-      <p>Enjoyed this reflection? Share it with your friends!</p>
-      <label for="share-link" style="font-weight: bold;">Copy the link below:</label>
-      <input 
-        type="text" 
-        id="share-link" 
-        value="{{ request.build_absolute_uri }}" 
-        readonly 
-        style="width: 100%; padding: 5px; margin-top: 5px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px;"
-      >
-    </div>
   </div>
 </section>
 <div class='image-container'>
   {% if reflection.media %}
-    <img src="{{ url }}" alt="{{reflection.name}}" class='reflection-img'>
+    <ul>
+      {% for url in reflection.media %}
+        <li>
+          <img src="{{ url }}" alt="{{reflection.name}}" class='reflection-img'>
+        </li>
+      {% endfor %}
+    </ul>
   {% else %}
     <img src="{% static "images/sparklers.jpg" %}" alt="sparklers - default image" class='reflection-img'>
   {% endif %}
