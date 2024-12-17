@@ -67,38 +67,38 @@ def add_response(request, reflection_id):
         new_response.save()
     return redirect('reflection-detail', reflection_id=reflection_id)
 
-def index_friends(request):
-    friends = Friend.objects.friends(request.user)
-    pending_requests = FriendshipRequest.objects.filter(to_user=request.user)
-    search_results = []
-    query = None
+# def index_friends(request):
+#     friends = Friend.objects.friends(request.user)
+#     pending_requests = FriendshipRequest.objects.filter(to_user=request.user)
+#     search_results = []
+#     query = None
 
-    if request.method == 'GET':
-        query = request.GET.get('search', '').strip()
-        if query:
-            search_results = User.objects.filter(
-                Q(username__icontains=query)
-            ).exclude(id=request.user.id)
+#     if request.method == 'GET':
+#         query = request.GET.get('search', '').strip()
+#         if query:
+#             search_results = User.objects.filter(
+#                 Q(username__icontains=query)
+#             ).exclude(id=request.user.id)
 
-    if request.method == 'POST' and 'send_request' in request.POST:
-        recipient_id = request.POST.get('recipient_id')
-        recipient = get_object_or_404(User, id=recipient_id)
-        Friend.objects.add_friend(
-            request.user,
-            recipient,
-            message='Hey, lets connect!'
-        )
-        return redirect('index-friends')
+#     if request.method == 'POST' and 'send_request' in request.POST:
+#         recipient_id = request.POST.get('recipient_id')
+#         recipient = get_object_or_404(User, id=recipient_id)
+#         Friend.objects.add_friend(
+#             request.user,
+#             recipient,
+#             message='Hey, lets connect!'
+#         )
+#         return redirect('index-friends')
 
-    return render(request, 'friends/index.html', {
-        'friends': friends,
-        'pending_requests': pending_requests,
-        'search_results': search_results,
-        'query': query,
-    })
-
-# Reject the friend request
-def reject_request(request, request_id):
-    friendship_request = get_object_or_404(FriendshipRequest, id=request_id, to_user=request.user)
-    friendship_request.delete()
-    return redirect('index_friends')
+#     return render(request, 'friends/index.html', {
+#         'friends': friends,
+#         'pending_requests': pending_requests,
+#         'search_results': search_results,
+#         'query': query,
+#     })
+# 
+# # Reject the friend request
+# def reject_request(request, request_id):
+#     friendship_request = get_object_or_404(FriendshipRequest, id=request_id, to_user=request.user)
+#     friendship_request.delete()
+#     return redirect('index_friends')
