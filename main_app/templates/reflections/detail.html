@@ -5,23 +5,30 @@
 {% endblock %} 
 {% block content %}
 <section class="reflection-container">
-  <div class="reflection-details">
-    <h1>{{ reflection.name }}</h1>
-    <h3>{{ reflection.date }}</h3>
+  <div class='reflection-title'>
+    <h1 class='reflection-info'>{{ reflection.name }}</h1>
+    <h3 class='reflection-info'>{{ reflection.date }}</h3>
+  </div>
+  <div class="description-container">
     <p>{{ reflection.description }}</p>
     <div class='relfection-actions'>
         <a href='{% url 'reflection-update' reflection.id %}'class='btn warn'>Edit</a>
         <a href='{% url 'reflection-delete' reflection.id %}'class='btn danger'>Delete</a>
+    </div>
   </div>
 </section>
 <div class='image-container'>
-  <ul>
-    {% for url in reflection.media %}
-      <li>
-        <img src="{{ url }}" alt="{{reflection.name}}" class='reflection-img'>
-      </li>
-    {% endfor %}
-  </ul>
+  {% if reflection.media %}
+    <ul>
+      {% for url in reflection.media %}
+        <li>
+          <img src="{{ url }}" alt="{{reflection.name}}" class='reflection-img'>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <img src="{% static "images/sparklers.jpg" %}" alt="sparklers - default image" class='reflection-img'>
+  {% endif %}
 </div>
 <div class='response-container'>
   <section class='responses'>
