@@ -36,6 +36,7 @@ main {
     min-width: 30vw;
     max-width: 100%;
     max-height: 45vh;
+    justify-self: flex-end;
 }
 
 .response-container {

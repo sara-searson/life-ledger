@@ -25,7 +25,7 @@ What's in the icebox?
 - Add a visual chart to see your year
 
 ### Technologies 
-Made with Python, Django, Postgresql, and deployed with Heroku
+Made with Python, Django, Postgres, and deployed with Heroku
 
 ## resources
 Made with django. 
